@@ -1,0 +1,22 @@
+version: "3.9"
+
+services:
+  api-gatewaydocker:
+    image: mojtaba2422/ecommerce-api-gateway:latest
+#    build: .
+    container_name: ecommerce-api-gateway
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_CONFIG_IMPORT=configserver:http://ecommerce-config-server:8888
+      - EUREKA_SERVER_URL=http://ecommerce-eureka-server:9999/eureka
+      - REDIS_HOST=localhost
+      - REDIS_PORT=6379
+      - FRONT_BASE_URL=http://localhost:80
+    networks:
+      - ecommerce-network
+networks:
+  ecommerce-network:
+    name: ecommerce-network
+    driver: bridge
+    external: true

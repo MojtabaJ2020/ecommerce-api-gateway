@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: user-service
+  cloud:
+    discovery:
+      enabled: true
+  config:
+    import: ${SPRING_CONFIG_IMPORT:configserver:http://localhost:8888}
+    label: master
+    name: api-gateway
+    fail-fast: true
+
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+    reactor.netty: DEBUG
