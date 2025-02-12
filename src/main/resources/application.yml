@@ -1,6 +1,6 @@
 spring:
   application:
-    name: user-service
+    name: api-gateway
   cloud:
     discovery:
       enabled: true

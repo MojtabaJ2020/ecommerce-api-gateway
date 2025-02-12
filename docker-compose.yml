@@ -10,9 +10,9 @@ services:
     environment:
       - SPRING_CONFIG_IMPORT=configserver:http://ecommerce-config-server:8888
       - EUREKA_SERVER_URL=http://ecommerce-eureka-server:9999/eureka
-      - REDIS_HOST=localhost
+      - REDIS_HOST=ecommerce-redis
       - REDIS_PORT=6379
-      - FRONT_BASE_URL=http://localhost:80
+      - FRONT_BASE_URL=http://ecommerce-front-app:80
     networks:
       - ecommerce-network
     depends_on:
